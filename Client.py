@@ -22,10 +22,8 @@ class Client:
         self.button = ttk.Button(master, text='Cancel', command=self.frame.quit)
         self.button.pack(side=RIGHT, padx=15, pady=5)
 
-        self.okbut = ttk.Button(master, text='OK', command=self.getcli)
+        self.okbut = ttk.Button(master, text='OK', command=self.othertest)
         self.okbut.pack(side=LEFT, padx=15, pady=5)
-
-
 
 
     def getcli(self):
@@ -33,13 +31,17 @@ class Client:
         w = Message(self.frame, text="Please select a client!")
 
         if clientname in OPTIONS:
-            #print("The client should be: " + str(clientname))
+            #print("The client should be: " + clientname)
             root.destroy()
             client = str(clientname)
             return client
         else:
-            self.frame.pack(padx=5, pady=  5)
+            self.frame.pack(padx=5, pady=5)
             w.pack()
+
+    def othertest(self):
+        #print("The client should be: " + self.getcli())
+        return self.getcli()
 
 
 root = Tk()
